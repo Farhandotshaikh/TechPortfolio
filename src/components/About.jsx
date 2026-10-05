@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from 'react'
 import { motion, useInView, animate } from 'framer-motion'
 import { Twitter, Instagram, Dribbble, Github } from 'lucide-react'
 import { profile, stats } from '../data'
-import Contact from './Contact'
 
 const socialIcons = { IG: Instagram, GH: Github }
 
@@ -93,8 +92,6 @@ const About = () => (
         className="rounded-[2rem] w-full h-[36rem] object-cover object-top"
       />
     </div>
-
-    <Contact />
   </section>
 )
 
