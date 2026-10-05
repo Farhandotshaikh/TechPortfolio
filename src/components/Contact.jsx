@@ -107,6 +107,18 @@ const Contact = () => {
               </div>
 
               <motion.div variants={fadeUp} custom={2} initial="hidden" whileInView="show" viewport={{ once: true }}>
+                <label className="text-xs font-semibold text-primary">Phone Number</label>
+                <input
+                  type="tel"
+                  placeholder="Your phone number"
+                  name="phone"
+                  required
+                  autoComplete="tel"
+                  className="mt-1 w-full rounded-xl bg-surface px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-primary"
+                />
+              </motion.div>
+
+              <motion.div variants={fadeUp} custom={2} initial="hidden" whileInView="show" viewport={{ once: true }}>
                 <label className="text-xs font-semibold text-primary">Service Needed?</label>
                 <select  name="service" className="mt-1 w-full rounded-xl bg-surface px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-primary">
                   <option>CMS Website Development</option>
