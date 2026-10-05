@@ -20,7 +20,7 @@ const Projects = () => (
     </div>
 
     <div className="relative">
-      {projects.map((p, i) => (
+      {projects.slice(0, 4).map((p, i) => (
         <ProjectStackCard key={p.slug} project={p} index={i} isLast={i === projects.length - 1} />
       ))}
     </div>

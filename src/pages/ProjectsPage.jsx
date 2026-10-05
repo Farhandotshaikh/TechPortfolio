@@ -36,7 +36,15 @@ const ProjectsPage = () => (
           className="grid grid-cols-1 md:grid-cols-2 gap-8"
         >
           {projects.map((p) => (
-            <motion.div key={p.slug} variants={item} className="group overflow-hidden rounded-[2rem] bg-surface">
+            <motion.a
+              key={p.slug}
+              variants={item}
+              href={p.websiteUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Visit ${p.title} website (opens in a new tab)`}
+              className="group block overflow-hidden rounded-[2rem] bg-surface"
+            >
               <img
                 src={p.image}
                 alt={p.title}
@@ -45,9 +53,9 @@ const ProjectsPage = () => (
               <div className="p-6">
                 <span className="text-xs font-medium text-primary">{p.category}</span>
                 <h3 className="text-2xl mt-2 mb-2">{p.title}</h3>
-                <p className="text-sm text-muted">{p.description}</p>
+                <p className="text-sm ztext-muted">{p.description}</p>
               </div>
-            </motion.div>
+            </motion.a>
           ))}
         </motion.div>
       </div>

@@ -33,7 +33,11 @@ const ProjectStackCard = ({ project, index, isLast }) => {
   return (
     <div ref={wrapperRef} style={{ height: isLast ? 'auto' : '100vh' }} className="relative">
       <div className="sticky flex justify-center" style={{ top: topOffset, zIndex: index + 1 }}>
-        <motion.div
+        <motion.a
+          href={project.websiteUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`Visit ${project.title} website (opens in a new tab)`}
           style={{ scale }}
           className="relative overflow-hidden rounded-[18px] md:rounded-[22px] shadow-[0_25px_60px_-20px_rgba(0,0,0,0.35)] w-[90vw] sm:w-[85vw] md:w-[82vw] max-w-[1120px] h-[380px] sm:h-[480px] md:h-[620px]"
         >
@@ -47,6 +51,7 @@ const ProjectStackCard = ({ project, index, isLast }) => {
             </span>
             <motion.span
               whileHover={{ rotate: 45 }}
+              aria-hidden="true"
               className="h-9 w-9 rounded-full bg-primary flex items-center justify-center text-white"
             >
               <ArrowUpRight size={16} />
@@ -57,7 +62,7 @@ const ProjectStackCard = ({ project, index, isLast }) => {
             <h3 className="text-2xl md:text-4xl mb-2">{project.title}</h3>
             <p className="text-sm text-white/80 max-w-md">{project.description}</p>
           </div>
-        </motion.div>
+        </motion.a>
       </div>
     </div>
   )

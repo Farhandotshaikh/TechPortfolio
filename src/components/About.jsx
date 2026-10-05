@@ -1,7 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion, useInView, animate } from 'framer-motion'
-import { Twitter, Instagram, Dribbble } from 'lucide-react'
+import { Twitter, Instagram, Dribbble, Github } from 'lucide-react'
 import { profile, stats } from '../data'
+import Contact from './Contact'
+
+const socialIcons = { IG: Instagram, GH: Github }
 
 const Counter = ({ value, suffix }) => {
   const ref = useRef(null)
@@ -35,7 +38,7 @@ const About = () => (
       >
         <h2 className="text-4xl md:text-5xl mb-4">about me</h2>
         <p className="text-muted mb-8 max-w-md">
-          Hi, I'm {profile.name} — a digital designer and Framer developer passionate about crafting meaningful, impactful digital experiences.
+          Hi, I'm {profile.name} — a web developer and AI creator based in India. I specialize in building CMS websites, Shopify stores, custom web applications, and AI-generated videos that help businesses and creators grow their online presence.
         </p>
 
         <div className="flex flex-wrap gap-10 mb-8">
@@ -59,17 +62,25 @@ const About = () => (
         </div>
 
         <div className="flex gap-4 mb-8 text-ink/70">
-          <Twitter size={18} />
-          <Instagram size={18} />
-          <Dribbble size={18} />
+          {profile.socials.map((social) => {
+            const Icon = socialIcons[social.label]
+
+            return (
+              <a
+                key={social.label}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${social.label} profile (opens in a new tab)`}
+                className="inline-flex h-9 w-9 items-center justify-center rounded-full transition-opacity hover:opacity-70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white hover:bg-white/70"
+              >
+                {Icon ? <Icon size={20} aria-hidden="true" /> : social.label}
+              </a>
+            )
+          })}
         </div>
 
-        <a
-          href="/about"
-          className="inline-block rounded-full border border-primary text-primary px-7 py-3 text-sm font-semibold hover:bg-primary hover:text-white transition-colors"
-        >
-          My Story
-        </a>
+      
       </motion.div>
 
       <motion.img
@@ -77,11 +88,13 @@ const About = () => (
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.7 }}
-        src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=800&q=80"
-        alt="Kabir Rana portrait"
-        className="rounded-[2rem] w-full h-[26rem] object-cover"
+        src="./farhan-about.jpg"
+        alt="Farhan Shaikh portrait"
+        className="rounded-[2rem] w-full h-[36rem] object-cover object-top"
       />
     </div>
+
+    <Contact />
   </section>
 )
 
