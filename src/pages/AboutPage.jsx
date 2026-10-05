@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion'
 import About from '../components/About'
 import { profile } from '../data'
-import { Contact } from 'lucide-react'
 import Contact from '../components/Contact'
 
 const AboutPage = () => (
